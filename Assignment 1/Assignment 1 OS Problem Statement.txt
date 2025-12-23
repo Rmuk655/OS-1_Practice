@@ -1,0 +1,24 @@
+Assignment 1 OS Problem Statement
+
+In class, we discussed how multiple threads can concurrently update a shared variable, and how data corruption can occur when these operations are not atomic. We also implemented a simple program using two threads performing inc() and dec() operations on a shared variable, protected by a mutex lock to ensure atomicity.
+
+Now, you will extend this idea to a real-world synchronization problem:  the Producer–Consumer problem.
+
+Problem Statement
+
+Write a multithreaded C program that implements the Producer–Consumer problem using POSIX threads (pthread) and a mutex for synchronization.
+
+Your solution must include the following:
+
+Create two threads:
+Producer thread: Continuously generates random integers and inserts them into a bounded queue.
+Consumer thread: Continuously removes and prints integers from the same queue.
+Implement the queue as a circular buffer supporting the following operations:
+initQ(), addQ(), deleteQ(), frontQ(), isEmptyQ(), and isFullQ().
+Use a mutex to ensure that only one thread accesses or modifies the queue at a time.
+The queue should hold a maximum of n elements (bounded buffer).
+The program should clearly print messages showing the data produced and consumed.
+Maintain a clear separation of files:
+queue.h — Header file containing structure definitions and function prototypes
+queue.c — Source file containing queue function implementations
+main.c — Source file containing thread creation and synchronization logic
